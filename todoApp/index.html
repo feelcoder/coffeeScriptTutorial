@@ -3,13 +3,28 @@
    <head>
      <meta charset="utf-8">
      <title>CoffeeScript Tutorial</title>
+     <script src='http://cdn.ractivejs.org/latest/ractive.js'></script>
    </head>
    <body>
+   <div id="container"></div>
    <span id="coffeeOutput"></span>
    <ul id="todoList">
-   	<li> <input type="checkbox" id="lists" /> Hello World!!</li>
+   	<li> <input type="checkbox" /> Hello World!!</li>
    </ul>
-   <button id="addItem">{#button}</button>
+
+      <button id="addItem">{#button}</button>
+   <script>  
+    var ractive = new Ractive({
+      el: '#container',
+
+      // We could pass in a string, but for the sake of convenience
+      // we're passing the ID of the <script> tag above
+      template: '<span style="color: red">{{welcome}}</span>',
+
+      // Here, we're passing in some initial data
+      data: {welcome : 'This is a simple span'}
+    });
+  </script>
    <script src="ndex.js"></script>
    </body>
    </html>
